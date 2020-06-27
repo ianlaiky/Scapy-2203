@@ -81,10 +81,10 @@ if __name__ == '__main__':
     if str(input('DHCP starvation? y/n')).lower() == 'y':
         my_macs = [get_if_hwaddr(i) for i in get_if_list()]
         print(my_macs)
-        # interf = input("Enter interface:")
-        interf = 'Realtek PCIe GBE Family Controller'
-        # src_mac = input("Enter MAC:")
-        src_mac = '4c:cc:6a:06:83:3c'
+        interf = input("Enter interface:")
+        # interf = 'Realtek PCIe GBE Family Controller'
+        src_mac = input("Enter MAC:")
+        # src_mac = '4c:cc:6a:06:83:3c'
 
         time_sleep=int(input('DHCP Discover delay in seconds: '))
         dhcp_packets_no=int(input('Number of DHCP Discover packets:  '))
