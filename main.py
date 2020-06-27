@@ -57,6 +57,7 @@ def handle_dhcp(pkt):
 
     # input()
 
+    # if offer packet is a request, copy the ip from yiaddr to request packet
     if message_type == 2:
         print(pkt.show())
         print('MAC address that sent DHCP discover: ' + pkt.dst)
