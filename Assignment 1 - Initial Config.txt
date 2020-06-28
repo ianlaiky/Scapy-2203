@@ -3,6 +3,11 @@
 en
 conf t
 
+vlan 50
+exit
+vlan 100
+exit
+
 int range g0/0-23
 switchport mode access
 switchport access vlan 50
@@ -16,6 +21,11 @@ mac address-table aging-time 0 [ vlan 1 ]
 en
 conf t
 
+vlan 50
+exit
+vlan 100
+exit
+
 int g0/24
 switchport mode trunk
 exit
@@ -25,6 +35,11 @@ mac address-table aging-time 0 [ vlan 1 ]
 ---Core Switch:---
 en
 conf t
+
+vlan 50
+exit
+vlan 100
+exit
 
 int g0/1
 switchport mode trunk
