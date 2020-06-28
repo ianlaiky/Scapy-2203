@@ -1,0 +1,115 @@
+========== Diagram 1 ==========
+---HR Switch:---
+en
+conf t
+
+int range g0/0-23
+switchport mode access
+switchport access vlan 50
+int g0/24
+switchport mode trunk
+exit
+
+mac address-table aging-time 0 [ vlan 1 ]
+
+---Hot Desking Switch:---
+en
+conf t
+
+int g0/24
+switchport mode trunk
+exit
+
+mac address-table aging-time 0 [ vlan 1 ]
+
+---Core Switch:---
+en
+conf t
+
+int g0/1
+switchport mode trunk
+int g0/2
+switchport mode trunk
+int g0/24
+switchport mode trunk
+exit
+
+mac address-table aging-time 0 [ vlan 1 ]
+
+---Internal Router:---
+en
+conf t
+
+int g0/0.50
+encapsulation dot1q 50
+ip addr 10.0.50.1 255.255.255.0
+no shut
+int g0/0.100
+encapsulation dot1q 100
+ip addr 10.0.100.1 255.255.255.0
+no shut
+int g0/1
+ip addr 10.0.1.1 255.255.255.0
+no shut
+int g0/2
+ip addr 10.0.2.1 255.255.255.0
+no shut
+exit
+
+ip dhcp pool HR
+network 10.0.50.0 255.255.255.0
+default-router 10.0.50.1
+dns-server 10.0.50.1
+exit
+
+ip dhcp pool HOTDESK
+network 10.0.100.0 255.255.255.0
+default-router 10.0.100.1
+dns-server 10.0.100.1
+exit
+
+---External Router:---
+en
+conf t
+
+int g0/0
+ip addr 10.0.2.2 255.255.255.0
+no shut
+exit
+
+========== Diagram 3 ==========
+---Core Switch:---
+en
+conf t
+
+mac address-table aging-time 0 [ vlan 1 ]
+
+---Internal Router:---
+en
+conf t
+
+int g0/0
+ip addr 10.0.0.1 255.255.255.0
+no shut
+int g0/1
+ip addr 10.0.1.1 255.255.255.0
+no shut
+int g0/2
+ip addr 10.0.2.1 255.255.255.0
+no shut
+exit
+
+ip dhcp pool INTERNAL
+network 10.0.0.0 255.255.255.0
+default-router 10.0.0.1
+dns-server 10.0.0.1
+exit
+
+---External Router:---
+en
+conf t
+
+int g0/0
+ip addr 10.0.2.2 255.255.255.0
+no shut
+exit
