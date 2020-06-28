@@ -16,6 +16,8 @@ switchport mode trunk
 exit
 
 mac address-table aging-time 0 [ vlan 1 ]
+mac address-table aging-time 0 [ vlan 50 ]
+mac address-table aging-time 0 [ vlan 100 ]
 
 ---Hot Desking Switch:---
 en
@@ -31,6 +33,8 @@ switchport mode trunk
 exit
 
 mac address-table aging-time 0 [ vlan 1 ]
+mac address-table aging-time 0 [ vlan 50 ]
+mac address-table aging-time 0 [ vlan 100 ]
 
 ---Core Switch:---
 en
@@ -50,6 +54,8 @@ switchport mode trunk
 exit
 
 mac address-table aging-time 0 [ vlan 1 ]
+mac address-table aging-time 0 [ vlan 50 ]
+mac address-table aging-time 0 [ vlan 100 ]
 
 ---Internal Router:---
 en
