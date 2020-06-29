@@ -3,8 +3,8 @@
 $username = $password = $error = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-	$username = test_input($_POST["username"])
-	$password = test_input($_POST["password"])
+	$username = test_input($_POST["username"]);
+	$password = test_input($_POST["password"]);
 	if ($username == "admin" && $password == "password") {
 		header("Location: http://localhost:80/test/success.php");
 	}
