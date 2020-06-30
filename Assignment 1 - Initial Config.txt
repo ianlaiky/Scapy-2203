@@ -8,10 +8,10 @@ exit
 vlan 100
 exit
 
-int range g0/0-23
+int range g1/0/1-23
 switchport mode access
 switchport access vlan 50
-int g0/24
+int g1/0/24
 switchport mode trunk
 exit
 
@@ -28,7 +28,10 @@ exit
 vlan 100
 exit
 
-int g0/24
+int range g1/0/1-22
+switchport mode access
+switchport access vlan 100
+int g1/0/24
 switchport mode trunk
 exit
 
@@ -45,11 +48,11 @@ exit
 vlan 100
 exit
 
-int g0/1
+int g1/0/1
 switchport mode trunk
-int g0/2
+int g1/0/2
 switchport mode trunk
-int g0/24
+int g1/0/24
 switchport mode trunk
 exit
 
