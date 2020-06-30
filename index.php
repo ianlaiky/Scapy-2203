@@ -3,8 +3,8 @@
 $username = $password = $error = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-	$username = test_input($_POST["username"]);
-	$password = test_input($_POST["password"]);
+	$username = $_POST["username"];
+	$password = $_POST["password"];
 	if ($username == "admin" && $password == "password") {
 		header("Location: http://localhost:80/test/success.php");
 	}
@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	<label for="fname">Username:</label><br>
 	<input type="text" id="username" name="username"><br>
 	<label for="password">Password:</label><br>
-	<input type="text" id="password" name="password"><br>
+	<input type="password" id="password" name="password"><br>
 	<br>
 	<input type="submit" value="Submit">
 </form>
