@@ -15,9 +15,21 @@ int g1/0/24
 switchport mode trunk
 exit
 
-mac address-table aging-time 0 [ vlan 1 ]
-mac address-table aging-time 0 [ vlan 50 ]
-mac address-table aging-time 0 [ vlan 100 ]
+int vlan 50
+ip addr 10.0.50.50 255.255.255.0
+no shut
+exit
+
+mac address-table aging-time 0 vlan 1 
+mac address-table aging-time 0 vlan 50
+mac address-table aging-time 0 vlan 100
+
+enable password password
+
+line vty 0 4
+password password
+login
+exit
 
 ---Hot Desking Switch:---
 en
@@ -35,9 +47,21 @@ int g1/0/24
 switchport mode trunk
 exit
 
-mac address-table aging-time 0 [ vlan 1 ]
-mac address-table aging-time 0 [ vlan 50 ]
-mac address-table aging-time 0 [ vlan 100 ]
+int vlan 100
+ip addr 10.0.100.100 255.255.255.0
+no shut
+exit
+
+mac address-table aging-time 0 vlan 1 
+mac address-table aging-time 0 vlan 50
+mac address-table aging-time 0 vlan 100
+
+enable password password
+
+line vty 0 4
+password password
+login
+exit
 
 ---Core Switch:---
 en
@@ -56,14 +80,28 @@ int g1/0/24
 switchport mode trunk
 exit
 
-mac address-table aging-time 0 [ vlan 1 ]
-mac address-table aging-time 0 [ vlan 50 ]
-mac address-table aging-time 0 [ vlan 100 ]
+int vlan 1
+ip addr 10.0.0.1 255.255.255.0
+no shut
+exit
+
+mac address-table aging-time 0 vlan 1 
+mac address-table aging-time 0 vlan 50
+mac address-table aging-time 0 vlan 100
+
+enable password password
+
+line vty 0 4
+password password
+login
+exit
 
 ---Internal Router:---
 en
 conf t
 
+int g0/0
+no shut
 int g0/0.50
 encapsulation dot1q 50
 ip addr 10.0.50.1 255.255.255.0
@@ -101,12 +139,27 @@ ip addr 10.0.2.2 255.255.255.0
 no shut
 exit
 
+
+---Rogue Switch:---
+en
+conf t
+
+int g1/0/1
+switchport mode access
+switchport access vlan 50
+int g1/0/2
+switchport mode access
+switchport access vlan 100
+int g1/0/24
+switchport mode trunk
+
+
 ========== Diagram 3 ==========
 ---Core Switch:---
 en
 conf t
 
-mac address-table aging-time 0 [ vlan 1 ]
+mac address-table aging-time 0 vlan 1
 
 ---Internal Router:---
 en

@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$username = $_POST["username"];
 	$password = $_POST["password"];
 	if ($username == "admin" && $password == "password") {
-		header("Location: http://localhost:80/test/success.php");
+		header("Location: success.php");
 	}
 	else {
 		$error = "Incorrect Credentials";
