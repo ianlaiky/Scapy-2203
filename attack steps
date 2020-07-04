@@ -1,0 +1,17 @@
+(phase 1)
+Attacker connect kali to one of unused port
+enable dtp trunking using yersinia
+mac flood
+attacker found traffic from one user to web server
+attacker found traffic from one user to a switch (telnet)
+password was found in the packet
+-assumption is admin doing his daily checks on devices-
+(phase 2)
+attacker telnet to the switch to find vlans and network information
+atacker brought a rogue switch to connect to the port as trunk
+attacker set a access vlan 50 on one of his rouge port, attacker connect his kali to that port
+attacker dhcp starve the dhcp server, attacker set up spoof dhcp server on kali
+gateway is now set to attacker, dns is on attacker ip
+(phase 3)
+victim access the website, using dnschef, is directed to the attacker spoof website and password is extracted
+attacker access the website and get the secret data
