@@ -3,19 +3,12 @@
 $username = $password = $error = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-	$username = $_POST["username"];
-	$password = $_POST["password"];
-	if ($username == "admin" && $password == "password") {
-		header("Location: success-phish.php");
-	}
-	else {
-		$error = "Incorrect Credentials";
-	}
+	header("Location: success-phish.php");
 }
 
 ?>
 
-<form action="index.php" method="POST">
+<form action="index-phish.php" method="POST">
 	<h1>Enterprise Server Login (NOT REAL!)</h1>
 	<?php 
 		if (!empty($error)) {
