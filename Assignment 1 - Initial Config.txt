@@ -130,6 +130,13 @@ default-router 10.0.100.1
 dns-server 10.0.100.1
 exit
 
+ip host ict2203.com 10.0.1.100
+ip host ict2203.com ns ns.ict2203.com
+ip host ns.ict2203.com 10.0.1.1 10.0.50.1 10.0.100.1
+ip host www.ict2203.com 10.0.1.100
+ip dns server
+ip dns primary ict2203.com soa ns.ict2203.com admin@ict2203.com
+
 ---External Router:---
 en
 conf t
