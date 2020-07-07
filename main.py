@@ -1,5 +1,5 @@
 from scapy.all import *
-from scapy.arch.windows import show_interfaces
+# from scapy.arch.windows import show_interfaces
 
 # global data
 interf = ""
@@ -72,7 +72,7 @@ def handle_dhcp(pkt):
 
 
 if __name__ == '__main__':
-    print(show_interfaces())
+    # print(show_interfaces())
 
     if str(input("MAC flood? y/n")).lower() == 'y':
         packet_list = generate_packets()
