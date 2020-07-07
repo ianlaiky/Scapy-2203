@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 <form action="index.php" method="POST">
-	<h1>Enterprise Server Login</h1>
+	<h1>Enterprise Server Login (NOT REAL!)</h1>
 	<?php 
 		if (!empty($error)) {
 			echo "<h2>" . $error . "</h2>";
