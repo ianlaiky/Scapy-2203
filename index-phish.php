@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$username = $_POST["username"];
 	$password = $_POST["password"];
 	if ($username == "admin" && $password == "password") {
-		header("Location: success.php");
+		header("Location: success-phish.php");
 	}
 	else {
 		$error = "Incorrect Credentials";
