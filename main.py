@@ -1,3 +1,10 @@
+# Group Members
+# 1802964 - Ian Lai Kheng Yan
+# 1802989 - Calvin Tan Jun Kai
+# 1802953 - Chua Guang Jun
+# 1802967 - Koh Jie
+
+
 from scapy.all import *
 # from scapy.arch.windows import show_interfaces
 
