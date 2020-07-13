@@ -8,7 +8,7 @@ interf = ""
 def generate_packets():
     print("run")
     packet_list = []  # initializing packet_list to hold all the packets
-    for i in range(1, 10000):
+    for i in range(1, 100000):
         packet = Ether(src=RandMAC(), dst=RandMAC()) / IP(src=RandIP(), dst=RandIP())
         packet_list.append(packet)
     return packet_list
